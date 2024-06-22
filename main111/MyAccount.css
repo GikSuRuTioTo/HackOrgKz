@@ -1,5 +1,5 @@
 body {
-    background:linear-gradient(to top,rgb(126, 76, 47),rgb(79, 54, 170));
+    background:linear-gradient(to top,rgb(255, 255, 255),rgb(255, 255, 255));
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment:fixed ;
@@ -17,18 +17,17 @@ body {
     top:0%;
 }
 #F{
-    border-radius: 5%;
-    border-style: groove;
-    border-color: aqua;
-    border-width: 5px;
-    font-size:50px;
-    background-color: aquamarine;
     position: relative;
     right: 0%;
-    top:-50%;
 }
 button.F{
-    bottom:10%;
+    background-color: #04a5aa;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  cursor: pointer;
+  width: 80%;
+  opacity: 0.9;
 }
 .Rizz{
     position: relative;
@@ -36,5 +35,72 @@ button.F{
     margin: auto;
      width: 12%;
     padding: 10px;
+}
+.Lebron{
+    width: 20%;
+    font-size: 50px;
+    position: relative;
+    right: -7%;
+    color: rgb(0, 57, 71);
+}
+.Dil{
+    background-color: #04a5aa;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  cursor: pointer;
+  width: 80%;
+  opacity: 0.9;
+    font-size:50px;
+    position: relative;
+    margin-top: 10%;
+}
+* {box-sizing: border-box}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
 }
 

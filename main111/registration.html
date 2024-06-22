@@ -7,19 +7,21 @@
 </head>
 
 <body>
-    <form id="main-form" onsubmit="return checkForm(this)" method="post">
-
-        <label for="name">Логин:</label>
-        
-        <input type="text" name="login" placeholder="Логин" id="login"><br><br>
-        
-        <label for="password">Пapoль:</label>
-        
-        <input type="password" name="pass" placeholder="Пapоль" id="pass"><br><br>
-        
-        <input type="submit" name="submit" value="гOTOBO">
-        
-    </form>
-    <script src="Node.js"></script>
+    <link rel="stylesheet" type="text/css" href="MyAccount.css"/>
+    <div class="Rizz">
+        <button onclick="OnClickNazad1()" class="F" id="F">Назад</button>
+    </div>
+    <form>
+        <div class="container">
+          <h1>Логин</h1>
+          <hr>
+          <label for="login"><b>Логин</b></label>
+          <input type="text" placeholder="Введите логин" name="login" id="login" required>
+      
+          <button onclick= "Save()" class="registerbtn">Входить</button>
+        </div>
+      
+      </form>
+    <script src="MyAccount.js"></script>
 </body>
 </html>
