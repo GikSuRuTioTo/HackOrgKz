@@ -1,55 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title>Физика</title>
-
+    <title>Отправка сообщения в Telegram</title>
 </head>
-
 <body>
-    <button onclick="Menu()">Назад</button>
-    <h1>Физика</h1>
-    <p>Линзалар деп екі сфералық бетпен шектелген мөлдір шыны денені айтады. 
-        Линза түрлері: дөңес - жинағыш, ойыс – шашыратқыш. 
-        F- фокустық қашықтық 
-        d- нәрседен линзаға дейінгі қашықтық 
-        f- линзадан кескінге дейінгі қашықтық 
-        D- оптикалық күш 
-        D=1/F – оптикалық күш 
-        1/d+1/f=1/F 
-        1/d+1/f=D – жұқа линзаның формуласы 
-        Сұрақтар: 
-        Линзалар дегеніміз не? Түрлері. 
-        Линза фокусы, оптикалық ось дегеніміз не? 
-        Оптикалық күш формуласы. 
-        Жұқа линзаның формуласы. 
-        ІV.3- топқа каточка арқылы эксперименттік тапсырма беріледі. 
-        Тапсырма: Жинағыш линзаның фокустық арақашықтығы мен оптикалық күшін анықтау 
-        Құрал-жабдықтар: жинағыш линза, сызғыш, экран, жарық көзі(шам). 
-        Жұмысты барысы: 
-        Жарық көзін, линзаны, экранды бір түзудің бойына орналастырыңдар. 
-        Жарық көзімен линзаны экранда жарық көзінің анық кескіні шыққанша қозғаңдар. 
-        Экранда үлкейтілген кескінін алыңдар. 
-        Жарық көзінен линзаға дейінгі қашықтықты d-өлшеңдер. 
-        Линзадан экранға дейінгі қашықтықты f-өлшеңдер. 
-        Кестені толтырыңдар. 
-        Кескіннің түрі 
-        d, см f,см D, дптр 
-        Үлкейтілген 
-        Кішірейтілген 
-        Тең 
-        Линзаның D- оптикалық күшін формуласы бойынша есптеңдер. 
-        Қорытынды жасаңдар 
-        ІV.Сабақты қорытындылау. 
-        Бүгінгі сабақтан не білдің, не үрендің? Қолданылуы.                                                                      V. Бағалау 
-        VІ. Үйге тапсырма §70-72 оқу                             </p>
-    <iframe width=1000 height=600 src="https://www.youtube.com/embed/v2ZombR_tPY?showinfo=0" frameborder = '0' allowfullscreen> 
-        </iframe><br><br>
-    <button onclick="ToTest()">Test</button><br><br>
-    <h2>Задачи</h2>
-    <p>1.Линзаның фокусы арқылы өтетін сәуле линзадан соң қалай жүреді?<br>
-         2.Оптикалық оське параллель болатын сәуле жинағыш линзадан  өткен соң қалай жүреді?
-        <br>3.Фокус аралығы 20 см шашыратқыш линзаның оптикалық күшінің абсолют мәні нешеге тең?</p>
-    <script src="svyaz.js"></script>
+    <h2>Отправить сообщение</h2>
+    <form id="telegramForm">
+        <label for="message">Сообщение:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+        <button type="submit">Отправить</button>
+    </form>
+
+
+
+    <script>
+        document.getElementById("telegramForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const message = document.getElementById("message").value;
+            sendMessageToTelegram(message);
+        });
+
+        function sendMessageToTelegram(message) {
+    const token = '7239038796:AAEI6V_3OLZbr6Iw_0Qtm8dQAvM3WDdicxk';
+    const chatId = '1878343052';
+    const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            if (data.ok) {
+                document.getElementById("responseMessage").innerText = message; // Отображение отправленного сообщения
+                alert('Сообщение успешно отправлено в Telegram!');
+            } else {
+                alert('Произошла ошибка при отправке сообщения.');
+            }
+        })
+        .catch(error => {
+            console.error('Ошибка:', error);
+        });
+}
+
+    </script>
 </body>
 </html>

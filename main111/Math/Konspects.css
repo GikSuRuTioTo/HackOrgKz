@@ -1,0 +1,136 @@
+body {
+    background:linear-gradient(to top,skyblue,white);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment:fixed ;
+    
+}
+button.bro {
+    bottom:10%;
+}
+#qwerty0 {
+    border-radius: 5%;
+    border-style: groove;
+    border-color: aqua;
+    border-width: 5px;
+    font-size:50px;
+    background-color: aquamarine;
+    position: relative;
+    right: 0%;
+    top:-50%;
+}
+#qwerty1 {
+    border-radius: 5%;
+    border-style: groove;
+    border-color: aqua;
+    border-width: 5px;
+    font-size:300px;
+    background-color: aquamarine;
+    position: relative;
+    right: -1%;
+    margin-top:10%;
+}
+#qwerty2 {
+    border-radius: 5%;
+    border-style: groove;
+    border-color: aqua;
+    border-width: 5px;
+    font-size: 300px;;
+    background-color: aquamarine;
+    position: relative;
+    right: -5%;
+    margin-top:10%;
+}
+.button-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
+#IELTSqwerty0 {
+    border-radius: 5%;
+    border-style: groove;
+    border-color: aqua;
+    border-width: 5px;
+    font-size:50px;
+    background-color: aquamarine;
+    position: relative;
+    right: 0%;
+    top:-50%;
+}
+#IELTSqwerty1 {
+    border-radius: 5%;
+    border-style: groove;
+    border-color: aqua;
+    border-width: 5px;
+    font-size: 80px;;
+    background-color: aquamarine;
+    position: relative;
+    right: 0%;
+    margin-top:10%;
+}
+#IELTSqwerty2 {
+    border-radius: 5%;
+    border-style: groove;
+    border-color: aqua;
+    border-width: 5px;
+    font-size: 80px;;
+    background-color: aquamarine;
+    position: relative;
+    right: 0%;
+    margin-top:10%;
+}
+#IELTSqwerty3 {
+    border-radius: 5%;
+    border-style: groove;
+    border-color: aqua;
+    border-width: 5px;
+    font-size: 80px;;
+    background-color: aquamarine;
+    position: relative;
+    right: 0%;
+    margin-top:10%;
+}
+#IELTSqwerty4 {
+    border-radius: 5%;
+    border-style: groove;
+    border-color: aqua;
+    border-width: 5px;
+    font-size: 80px;;
+    background-color: aquamarine;
+    position: relative;
+    right: 0%;
+    margin-top:10%;
+}
+#SATSqwerty1{
+    border-radius: 5%;
+    border-style: groove;
+    border-color: aqua;
+    border-width: 5px;
+    font-size: 80px;;
+    background-color: aquamarine;
+    position: relative;
+    right: 0%;
+    margin-top:10%;
+}
+#SATSqwerty2{
+    border-radius: 5%;
+    border-style: groove;
+    border-color: aqua;
+    border-width: 5px;
+    font-size: 80px;;
+    background-color: aquamarine;
+    position: relative;
+    right: -5%;
+    margin-top:10%;
+}
+#SATSqwerty3{
+    border-radius: 5%;
+    border-style: groove;
+    border-color: aqua;
+    border-width: 5px;
+    font-size: 80px;;
+    background-color: aquamarine;
+    position: relative;
+    right: -10%;
+    margin-top:10%;
+}
