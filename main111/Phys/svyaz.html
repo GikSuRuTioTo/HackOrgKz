@@ -1,45 +1,94 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Отправка сообщения в Telegram</title>
+    <title>Связь с ментором</title>
 </head>
 <body>
+    <button onclick="Back()" >Назад</button>
     <h2>Отправить сообщение</h2>
     <form id="telegramForm">
         <label for="message">Сообщение:</label><br>
-        <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+        <textarea id="message" name="message" rows="4" cols="50"></textarea>
+        <br>
+        <label for="telegramTag">Тэг Telegram:</label><br>
+        <input type="text" id="telegramTag" name="telegramTag">
+        <br>
+        <br>
         <button type="submit">Отправить</button>
     </form>
-
-
+    <p id="responseMessage"></p>
 
     <script>
         document.getElementById("telegramForm").addEventListener("submit", function(event) {
             event.preventDefault();
             const message = document.getElementById("message").value;
-            sendMessageToTelegram(message);
+            const telegramTag = document.getElementById("telegramTag").value.trim().toLowerCase();
+            getChatId(telegramTag, message);
         });
 
-        function sendMessageToTelegram(message) {
-    const token = '7239038796:AAEI6V_3OLZbr6Iw_0Qtm8dQAvM3WDdicxk';
-    const chatId = '1878343052';
-    const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+        function getChatId(telegramTag, message) {
+            const token = '7350499244:AAE5AEhjrr1_bxjKo4A54OzxqyAko_Xc_3Q'; // Token for getting updates
+            fetch("https://api.telegram.org/bot${token}/getUpdates")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Ошибка HTTP: ' + response.status);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Полученные данные:', data); // Debug output
+                if (data.ok) {
+                    const updates = data.result;
+                    let chatId = null;
+                    updates.forEach(update => {
+                        if (update.message && update.message.chat) {
+                            const chat = update.message.chat;
+                            console.log('Проверка чата:', chat); // Detailed debug output
+                            if (chat.username && chat.username.toLowerCase() === telegramTag) {
+                                chatId = chat.id;
+                            }
+                        }
+                    });
+                    if (chatId) {
+                        sendMessageToTelegram(chatId, message);
+                    } else {
+                        console.error('Нет совпадающего чата для тега:', telegramTag); // Error output
+                        throw new Error('Чат с указанным тегом не найден.');
+                    }
+                } else {
+                    throw new Error('Произошла ошибка при получении обновлений.');
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+            });
+        }
 
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            if (data.ok) {
-                document.getElementById("responseMessage").innerText = message; // Отображение отправленного сообщения
-                alert('Сообщение успешно отправлено в Telegram!');
-            } else {
-                alert('Произошла ошибка при отправке сообщения.');
-            }
-        })
-        .catch(error => {
-            console.error('Ошибка:', error);
-        });
+        function sendMessageToTelegram(chatId, message) {
+            const token = '7239038796:AAEI6V_3OLZbr6Iw_0Qtm8dQAvM3WDdicxk'; // Correct token for sending messages
+            const url = "https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}";
+
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Ошибка HTTP: ' + response.status);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.ok) {
+                        document.getElementById("responseMessage").innerText = 'Сообщение успешно отправлено в Telegram!';
+                    } else {
+                        throw new Error('Произошла ошибка при отправке сообщения.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Ошибка:', error);
+                });
+        }
+        function Back(){
+    window.history.back();
 }
-
     </script>
 </body>
 </html>

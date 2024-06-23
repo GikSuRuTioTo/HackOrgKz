@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fr</title>
+</head>
+<body>
+    <form action="TestTest.html" method="post">
+        <div class="container">
+          <h1>Создание теста</h1>
+          <label for="name"><b>Имя теста</b></label>
+          <input type="text" name="name" id="name" required>
+          <label for="q1"><b>Вопрос №1</b></label>
+          <input type="text" name="q1" id="q1" required>
+          <label for="q11"><b>Вариант №1</b></label>
+          <input type="text" name="q11" id="q11" required>
+          <label for="q12"><b>Вариант №2</b></label>
+          <input type="text" name="q12" id="q12" required>
+          <label for="q13"><b>Вариант №3</b></label>
+          <input type="text" name="q13" id="q13" required>
+          <label for="q14"><b>Вариант №4</b></label>
+          <input type="text" name="q14" id="q14" required>
+      
+          <button onclick= "Save11(document.getElementById('name').value);
+          Save(document.getElementById('name').value + '1',document.getElementById('q1').value);
+          Save(document.getElementById('name').value+ '11',document.getElementById('q11').value);
+          Save(document.getElementById('name').value + '12',document.getElementById('q12').value);
+          Save(document.getElementById('name').value + '13',document.getElementById('q13').value);
+          Save(document.getElementById('name').value + '14',document.getElementById('q14').value)" class="registerbtn">Сохранить</button>
+        </div>
+      
+      </form>
+      <script src="Create.js"></script>
+</body>
+</html>

@@ -11,7 +11,9 @@ function svyaz(){
 function Tests(){
     window.location.href = "Chemistry/Tests.html"
 }
-
+function AI(){
+    window.location.href = "public/index.html"
+}
 
 
 
